@@ -38,8 +38,8 @@
 .sticky-table {
   /* class requires hierarchy div > table */
   overflow: auto;
-  width: calc(100vw - .4rem);
-  height: calc(100vh - .4rem);
+  /* width: calc(100vw - rem); */
+  height: calc(100vh - 4rem);
   margin: 0.2em;
   caption {
     text-align: left;
