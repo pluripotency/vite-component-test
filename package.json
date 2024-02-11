@@ -1,11 +1,13 @@
 {
-  "name": "vite-swc-project",
+  "name": "vite-component-test",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "coffee:silent": "coffee -cbw -o client/src client/coffee_src > /dev/null",
+    "coffee": "coffee -cbw -o client/src client/coffee_src",
     "watch:vite": "vite",
-    "watch:coffee": "coffee -cbw -o client/src client/coffee_src > /dev/null",
+    "watch:coffee": "coffee",
     "dev": "run-p watch:*",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
@@ -13,6 +15,7 @@
   },
   "dependencies": {
     "coffeescript": "^2.7.0",
+    "lodash": "^4.17.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
