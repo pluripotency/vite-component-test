@@ -2,7 +2,7 @@ import { useState } from 'react'
 import h from 'react-hyperscript'
 import reactLogo from '../assets/react.svg'
 import viteLogo from '/vite.svg'
-import '../css/App.css'
+import '../../css/App.css'
 
 App = ()->
   [count, setCount] = useState(0)

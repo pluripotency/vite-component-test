@@ -1,12 +1,14 @@
 import _ from 'lodash'
 import { useState } from 'react'
 import h from 'react-hyperscript'
-import '../../css/sticky_table.css'
+import '../../src/css/sticky_table.css'
 import { NavBar, NavList } from './navbar'
 
 TestTable = ({header, data})->
+  # h 'div', [
   h '.sticky-table', [
-    h 'table.zebra-table.round-table', [
+    h 'table.zebra-table.border-table', [
+    # h 'table.zebra-table.round-table', [
       h 'thead', [
         h 'tr', header.map (head)->
           h 'th', head
@@ -15,6 +17,13 @@ TestTable = ({header, data})->
         h 'tr', row.map (col, col_i)->
           h 'td', col
     ]
+  ]
+  
+TestDivTable = ({header, data})->
+  h 'div', [
+    h '.div-table', [header].concat(data).map (row, row_i)->
+      h '.div-tr', row.map (col, col_i)->
+        h '.div-td', col
   ]
   
 NavApp = ()->
@@ -52,6 +61,7 @@ App = ()->
   , [
     h NavApp
     h TestTable, {data, header}
+    # h TestDivTable, {data, header}
   ]
 
 export default App
