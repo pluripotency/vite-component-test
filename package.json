@@ -5,9 +5,8 @@
   "type": "module",
   "scripts": {
     "coffee:silent": "coffee -cbw -o client/src client/coffee_src > /dev/null",
-    "coffee": "coffee -cbw -o client/src client/coffee_src",
+    "watch:coffee": "coffee -cbw -o client/src client/coffee_src",
     "watch:vite": "vite",
-    "watch:coffee": "coffee",
     "dev": "run-p watch:*",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",

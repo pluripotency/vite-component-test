@@ -1,10 +1,8 @@
 import _ from 'lodash'
-import { useState } from 'react'
 import h from 'react-hyperscript'
 import '../../src/css/sticky_table.css'
-import { NavBar, NavList } from './navbar'
 
-TestTable = ({header, data})->
+export Table = ({header, data})->
   # h 'div', [
   h '.sticky-table', [
     h 'table.zebra-table.border-table', [
@@ -19,27 +17,13 @@ TestTable = ({header, data})->
     ]
   ]
   
-TestDivTable = ({header, data})->
+export DivTable = ({header, data})->
   h 'div', [
     h '.div-table', [header].concat(data).map (row, row_i)->
       h '.div-tr', row.map (col, col_i)->
         h '.div-td', col
   ]
   
-NavApp = ()->
-  h NavBar, {
-    title: 'Sticky-Table'
-    collapse_items: [
-      h NavList, {
-        nav_list: [
-          {name: 'Menu', component: ''}
-        ]
-        default_index: 0
-        select_nav: ()->
-      }
-    ]
-  }
-
 get_table_data = ()->
   row_len = 100
   col_len = 25
@@ -50,18 +34,17 @@ get_table_data = ()->
     data
   }
 
-App = ()->
+export TestTable = ()->
   {
     header
     data
   } = get_table_data()
-  h '.container-fluid',
-    style:
-      padding: 0
-  , [
-    h NavApp
-    h TestTable, {data, header}
-    # h TestDivTable, {data, header}
-  ]
+  h Table, {header, data}
 
-export default App
+export TestDivTable = ()->
+  {
+    header
+    data
+  } = get_table_data()
+  h DivTable, {header, data}
+
