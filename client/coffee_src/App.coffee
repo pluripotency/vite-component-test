@@ -4,10 +4,12 @@ import h from 'react-hyperscript'
 # import '../src/css/index.css'
 import '../src/css/bootstrap.min.css'
 import { NavBar, NavList } from './parts/navbar'
+import FormTest from './components/test_form'
 import {TestTable} from './parts/sticky_table'
 import ViteApp from './parts/vite'
 
 nav_list = [
+  {name: 'FormTest', component: FormTest}
   {name: 'StickyTable', component: TestTable}
   {name: 'Vite', component: ViteApp}
 ]
@@ -17,9 +19,9 @@ NavApp = ()->
 App = ()->
   [selected_nav, setNav] = useState nav_list[0]
   useEffect ()->
-    console.log selected_nav
+    # console.log selected_nav
     return
-  , []
+  , [selected_nav]
 
   h '.container-fluid',
     style:
